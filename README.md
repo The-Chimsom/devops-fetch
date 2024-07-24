@@ -10,7 +10,7 @@ Clone the repository and mark the scripts as executable
 
  ```console
    git clone https://github.com/The-Chimsom/devops-fetch.git
-   cd devopsfetch
+   cd devops-fetch
  ```
  2.
 
@@ -18,6 +18,11 @@ Clone the repository and mark the scripts as executable
     chmod +x devopsfetch.sh
     chmod +x install.sh
  ```
+ 3. Run 
+ ```console
+ sudo ./install.sh
+ ```
+
 
 ## Features
  run **./devopsfetch.sh -options** 

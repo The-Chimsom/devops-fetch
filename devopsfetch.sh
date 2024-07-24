@@ -99,7 +99,7 @@ get_container_info() {
 }
 
 display_nginx_domains() {
-    echo -e "Server Name" | cat - <(sudo nginx -T | grep "server_name" | awk '{print $2}' | sort | uniq) | prettytable 1 light_blue
+    echo -e "Server Name\tDetails" | cat - <(sudo nginx -T | grep "server_name" | awk '{print $2 "\tDetails"}') | prettytable 2 light_blue
 }
 
 display_nginx_domain_info() {
@@ -127,7 +127,9 @@ display_time_range_info_for_a_particular_date() {
         end_date="$start_date"
     fi
 
-    journalctl --since "$start_date 00:00:00" --until "$end_date 23:59:59" 
+    journalctl --since "$start_date 00:00:00" --until "$end_date 23:59:59" \
+    | awk -F ' ' '{print $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15}' \
+    | column -t
 }
 
 
